@@ -6,9 +6,11 @@
   <% end %>
 <% else %>
   <p>Nobody has added any photos :(</p>
-  <p>
-    <form method="get" action="<%= new_photo_url %>">
-      <input type="submit" value="Add New Photo">
-    </form>
-  </p>
+  <% if current_user %>
+    <p>
+      <form method="get" action="<%= new_photo_url %>">
+        <input type="submit" value="Add New Photo">
+      </form>
+    </p>
+  <% end %>
 <% end %>
