@@ -1,6 +1,14 @@
-<p>Nobody has added any photos :(</p>
-<p>
-  <form>
-    <input type="submit" value="Add New Photo">
-  </form>
-</p>
+<% if @photos.any? %>
+  <% @photos.each do |photo| %>
+    <hr>
+    <p><%= image_tag photo.image.url(:medium) %></p>
+    <p><%= link_to photo.user.email, user_path(photo.user.id) %> <%= photo.description %></p>
+  <% end %>
+<% else %>
+  <p>Nobody has added any photos :(</p>
+  <p>
+    <form method="get" action="<%= new_photo_url %>">
+      <input type="submit" value="Add New Photo">
+    </form>
+  </p>
+<% end %>

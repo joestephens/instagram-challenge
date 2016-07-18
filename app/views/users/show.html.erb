@@ -1,0 +1,4 @@
+<h2><%= @user.email %></h2>
+<% @user.photos.each do |photo| %>
+  <p><%= image_tag photo.image.url(:thumb) %></p>
+<% end %>
